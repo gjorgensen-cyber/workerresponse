@@ -1,0 +1,29 @@
+README.md
+  s_4bf0d7462a053a::t_a148bc251efe0a 10-11
+assignment/README.md
+  s_4bf0d7462a053a::t_917ffadfce263b 21
+assignment/steps/01-origin-fly-httpbin.md
+  s_4bf0d7462a053a::t_03d782cd1911ed 46-47
+deploy/fly/README.md
+  s_4bf0d7462a053a::t_139734cea2b028 1-7
+fly.toml
+  s_4bf0d7462a053a::t_64695a270106f9 1
+tools/README.md
+  s_4bf0d7462a053a::t_4a00d925b448bd 11-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3baf8665bc7b9815112dfb616c78d6f4dceb3ed7",
+  "prompts": {},
+  "sessions": {
+    "s_4bf0d7462a053a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f36d27fb9ffe34OXokRWmiz5b5",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Greg Jorgensen <gjorgensen@cloudflare.com>"
+    }
+  }
+}
