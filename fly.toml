@@ -1,4 +1,4 @@
-app = "gregjorgensen-httpbin"
+app = "workerresponse"
 primary_region = "cdg"
 
 [build]

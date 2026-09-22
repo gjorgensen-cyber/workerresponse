@@ -8,9 +8,9 @@ later the `cloudflared` connector app.
 Examples:
 
 ```sh
-flyctl config validate --config deploy/fly/fly.toml
-flyctl deploy --remote-only --config deploy/fly/fly.toml
-flyctl status --app gregjorgensen-httpbin
+flyctl config validate --config fly.toml
+flyctl deploy --remote-only --config fly.toml
+flyctl status --app workerresponse
 ```
 
 ## `curl`

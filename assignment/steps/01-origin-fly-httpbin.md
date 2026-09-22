@@ -43,8 +43,8 @@ Run these commands from the repository root:
 
 ```sh
 fly auth login
-flyctl config validate --config deploy/fly/fly.toml
-flyctl deploy --remote-only --config deploy/fly/fly.toml
+flyctl config validate --config fly.toml
+flyctl deploy --remote-only --config fly.toml
 ```
 
 The app name is defined in `deploy/fly/fly.toml`; it should not be supplied as

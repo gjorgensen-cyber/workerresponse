@@ -18,7 +18,7 @@ belong to our deployment and Cloudflare configuration.
 
 ## Resource Naming
 
-- Fly.io origin app: `gregjorgensen-httpbin`
+- Fly.io origin app: `workerresponse`
 - Cloudflare zone: `greginthecloud.com`
 - Tunnel hostname: `tunnel.greginthecloud.com`
 - Required origin endpoint: `/headers`

@@ -7,7 +7,8 @@ Services assignment.
 
 - `origin/`: backend services that run before Cloudflare.
 - `origin/httpbin/`: imported HTTPBin source used for the origin.
-- `deploy/fly/`: Fly.io container and deployment configuration.
+- `fly.toml`: Fly.io application configuration.
+- `deploy/fly/`: Fly.io-specific Dockerfile.
 - `assignment/`: chronological implementation plan and testing evidence.
 - `tools/`: explanation of each CLI and platform used.
 
