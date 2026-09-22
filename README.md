@@ -1,5 +1,41 @@
 # httpbin(1): HTTP Request & Response Service
 
+## Assignment Deployment
+
+This repository is based on the maintained `psf/httpbin` project and includes
+Fly.io deployment files for the Application Services assignment.
+
+The assignment-specific files are:
+
+- `Dockerfile.fly`: installs HTTPBin and its standalone service dependencies.
+- `fly.toml`: configures the Fly.io application and exposes HTTPBin on port 8080.
+
+The required origin endpoint is:
+
+```text
+/headers
+```
+
+It returns the HTTP request headers received by the origin as JSON. HTTPBin has
+other diagnostic endpoints, but only `/headers` is part of this assignment's
+tested surface.
+
+Deploy after authenticating with Fly.io:
+
+```sh
+fly auth login
+fly deploy --config fly.toml
+```
+
+Test the deployed origin:
+
+```sh
+curl https://gregjorgensen-httpbin.fly.dev/headers
+```
+
+Do not send real cookies, authorization tokens, or other secrets when testing
+this endpoint because it reflects request headers.
+
 This is a fork of the original httpbin project, which is located at https://github.com/postmanlabs/httpbin
 
 Why fork?  we were unable to get ahold of the folks at postmanlabs to maintain the original project, and httpbin is used for other packages within the python ecosystem, such as [pytest-httpbin](https://pypi.org/project/pytest-httpbin/) which is in turn used by packages such as [requests](https://github.com/psf/requests/blob/main/requirements-dev.txt#L4) so we have forked this package.  That means that httpbin.org is not actually backed by this repo, but the [httpbin package](https://pypi.org/project/httpbin/) is.  Confusing right?  Know anyone at postmanlabs?  [get in touch](mailto:me@kevinmccarthy.org).
@@ -121,4 +157,3 @@ Releases are triggered on commits tagged with `release-` (for example
 - https://grpcb.in/
 - [go-httpbin](https://github.com/ahmetb/go-httpbin)
 - [java-httpbin](https://github.com/gaul/java-httpbin)
-
