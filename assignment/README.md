@@ -3,9 +3,8 @@
 This directory contains the implementation plan and evidence notes for the
 Cloudflare Application Services assignment.
 
-The upstream HTTPBin application is under `origin/httpbin/`. Assignment files
-are kept separate so it is clear which files belong to HTTPBin and which files
-belong to our deployment and Cloudflare configuration.
+The HTTPBin origin is maintained separately in the `httpbin-origin` project.
+This repository is reserved for the Cloudflare Worker and assignment notes.
 
 ## Steps
 
@@ -18,7 +17,7 @@ belong to our deployment and Cloudflare configuration.
 
 ## Resource Naming
 
-- Fly.io origin app: `workerresponse`
+- Fly.io origin app: `httpbin-origin`
 - Cloudflare zone: `greginthecloud.com`
 - Tunnel hostname: `tunnel.greginthecloud.com`
 - Required origin endpoint: `/headers`
@@ -26,8 +25,7 @@ belong to our deployment and Cloudflare configuration.
 
 ## Current Status
 
-- Upstream HTTPBin source imported from `psf/httpbin` at version `0.10.4`.
-- Fly.io deployment files added under `deploy/fly/`.
-- Fly app created, but the first remote image builds timed out while Fly
-  provisioned its builder.
-- No application Machine has been deployed yet.
+- HTTPBin source and Fly.io deployment files moved to the separate
+  `httpbin-origin` project.
+- All previously created Fly apps were deleted.
+- No Cloudflare resources have been changed.

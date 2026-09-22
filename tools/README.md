@@ -2,15 +2,16 @@
 
 ## Fly.io CLI
 
-Used in Step 1 to create, validate, deploy, inspect, and test the origin and
-later the `cloudflared` connector app.
+Used in the separate `httpbin-origin` project to create, validate, deploy,
+inspect, and test the origin. It will later be used for the `cloudflared`
+connector app.
 
 Examples:
 
 ```sh
 flyctl config validate --config fly.toml
 flyctl deploy --remote-only --config fly.toml
-flyctl status --app workerresponse
+flyctl status --app httpbin-origin
 ```
 
 ## `curl`
