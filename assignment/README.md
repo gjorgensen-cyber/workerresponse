@@ -3,9 +3,9 @@
 This directory contains the implementation plan and evidence notes for the
 Cloudflare Application Services assignment.
 
-The upstream HTTPBin application remains at the repository root. Assignment
-files are kept separate so it is clear which files belong to HTTPBin and which
-files belong to our deployment and Cloudflare configuration.
+The upstream HTTPBin application is under `origin/httpbin/`. Assignment files
+are kept separate so it is clear which files belong to HTTPBin and which files
+belong to our deployment and Cloudflare configuration.
 
 ## Steps
 

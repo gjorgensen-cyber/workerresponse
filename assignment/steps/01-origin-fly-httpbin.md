@@ -27,13 +27,15 @@ other secrets because the endpoint reflects request headers.
 
 ## Deployment Files
 
+- `origin/httpbin/`: imported HTTPBin application source.
 - `deploy/fly/Dockerfile`: assignment-specific container build.
 - `deploy/fly/fly.toml`: Fly.io app, region, port, and machine settings.
-- `Dockerfile`: upstream HTTPBin Dockerfile retained unchanged.
+- `origin/httpbin/Dockerfile`: upstream HTTPBin Dockerfile retained unchanged.
 
-The assignment Dockerfile installs HTTPBin with its standalone-service
-dependencies and runs Gunicorn on `0.0.0.0:8080`. Fly's `internal_port` is also
-8080, so the Fly proxy and the container agree on the service port.
+The assignment Dockerfile copies only `origin/httpbin/` into the image, installs
+HTTPBin with its standalone-service dependencies, and runs Gunicorn on
+`0.0.0.0:8080`. Fly's `internal_port` is also 8080, so the Fly proxy and the
+container agree on the service port.
 
 ## Deployment
 

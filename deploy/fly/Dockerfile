@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-COPY . .
+COPY origin/httpbin /app
 
 # Install HTTPBin and the optional dependencies required to run it as a service.
 RUN pip install --no-cache-dir ".[mainapp]"
