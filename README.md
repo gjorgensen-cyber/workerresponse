@@ -2,39 +2,18 @@
 
 ## Assignment Deployment
 
-This repository is based on the maintained `psf/httpbin` project and includes
-Fly.io deployment files for the Application Services assignment.
+This repository is based on the maintained `psf/httpbin` project. The
+assignment-specific plan, deployment files, and tool notes are separated from
+the upstream application:
 
-The assignment-specific files are:
+- [Assignment guide](assignment/README.md)
+- [Step 1: origin on Fly.io](assignment/steps/01-origin-fly-httpbin.md)
+- [Tools and usage](tools/README.md)
+- [Fly.io deployment files](deploy/fly/)
 
-- `Dockerfile.fly`: installs HTTPBin and its standalone service dependencies.
-- `fly.toml`: configures the Fly.io application and exposes HTTPBin on port 8080.
-
-The required origin endpoint is:
-
-```text
-/headers
-```
-
-It returns the HTTP request headers received by the origin as JSON. HTTPBin has
-other diagnostic endpoints, but only `/headers` is part of this assignment's
-tested surface.
-
-Deploy after authenticating with Fly.io:
-
-```sh
-fly auth login
-fly deploy --config fly.toml
-```
-
-Test the deployed origin:
-
-```sh
-curl https://gregjorgensen-httpbin.fly.dev/headers
-```
-
-Do not send real cookies, authorization tokens, or other secrets when testing
-this endpoint because it reflects request headers.
+The required origin endpoint is `/headers`. It returns the HTTP request headers
+received by the origin as JSON. HTTPBin has other diagnostic endpoints, but
+only `/headers` is part of this assignment's tested surface.
 
 This is a fork of the original httpbin project, which is located at https://github.com/postmanlabs/httpbin
 

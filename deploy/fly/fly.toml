@@ -2,7 +2,7 @@ app = "gregjorgensen-httpbin"
 primary_region = "cdg"
 
 [build]
-  dockerfile = "Dockerfile.fly"
+  dockerfile = "deploy/fly/Dockerfile"
 
 [http_service]
   internal_port = 8080
