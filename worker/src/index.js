@@ -23,6 +23,11 @@ export default {
     // Parse the URL so routing decisions use the request path only.
     const url = new URL(request.url);
 
+    // Require Access authentication for both /secure and /secure/<country>.
+    if (!ctx.access) {
+      return new Response('Access authentication required', { status: 401 });
+    }
+
     // Match a two-letter country path such as /secure/PT.
     const countryMatch = url.pathname.match(/^\/secure\/([A-Za-z]{2})\/?$/);
 
@@ -52,11 +57,6 @@ export default {
     // Only the identity page belongs to the non-country secure path.
     if (url.pathname !== '/secure' && url.pathname !== '/secure/') {
       return new Response('Not found', { status: 404 });
-    }
-
-    // Require Access authentication before generating identity output.
-    if (!ctx.access) {
-      return new Response('Access authentication required', { status: 401 });
     }
 
     // Read the verified identity supplied by the Access-integrated runtime.
