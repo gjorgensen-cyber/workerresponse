@@ -1,12 +1,22 @@
 # Cloudflare Worker
 
-This directory is reserved for the Worker implementation in the later
-assignment steps.
+This directory contains the initial Worker implementation for the assignment.
 
 The Worker will eventually:
 
 - Return authenticated identity information from `/secure`.
 - Link the country value to `/secure/${COUNTRY}`.
-- Read the country flag from a private R2 bucket.
+- Read the country flag from a private R2 bucket in the next implementation
+  slice.
 
-No Worker code has been created yet.
+## Wrangler
+
+Run Wrangler from the repository root:
+
+```sh
+wrangler deploy --config worker/wrangler.jsonc --dry-run
+wrangler deploy --config worker/wrangler.jsonc
+```
+
+The Worker route is `tunnel.greginthecloud.com/secure*`. Access is configured
+to authenticate this path before the Worker runs.
