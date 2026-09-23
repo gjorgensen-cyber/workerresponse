@@ -14,9 +14,14 @@ The Worker will eventually:
 Run Wrangler from the repository root:
 
 ```sh
-wrangler deploy --config worker/wrangler.jsonc --dry-run
-wrangler deploy --config worker/wrangler.jsonc
+NODE_USE_SYSTEM_CA=1 NODE_OPTIONS="--use-system-ca" \
+  wrangler deploy --config worker/wrangler.jsonc --dry-run
+NODE_USE_SYSTEM_CA=1 NODE_OPTIONS="--use-system-ca" \
+  wrangler deploy --config worker/wrangler.jsonc
 ```
 
 The Worker route is `tunnel.greginthecloud.com/secure*`. Access is configured
 to authenticate this path before the Worker runs.
+
+The initial Worker deployment is complete. The country flag response and R2
+binding are the next implementation slice.
