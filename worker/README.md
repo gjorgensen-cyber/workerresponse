@@ -25,3 +25,16 @@ to authenticate this path before the Worker runs.
 
 The initial Worker deployment is complete. The country flag response and R2
 binding are the next implementation slice.
+
+## Wrangler Corporate CA Note
+
+On this machine, Wrangler's Node process initially failed during OAuth with a
+certificate mismatch caused by the corporate proxy/VPN CA not being in Node's
+default trust store. The working commands use the macOS system CA store:
+
+```sh
+NODE_USE_SYSTEM_CA=1 NODE_OPTIONS="--use-system-ca" \
+  wrangler deploy --config worker/wrangler.jsonc
+```
+
+This preserves TLS verification. It does not disable certificate validation.
