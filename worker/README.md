@@ -1,12 +1,14 @@
-# Cloudflare Worker
+# Worker Implementation
 
-This directory contains the initial Worker implementation for the assignment.
+This directory contains the Worker source, Wrangler configuration, and the
+small initial set of flag assets.
 
-The Worker will eventually:
+## Files
 
-- Return authenticated identity information from `/secure`.
-- Link the country value to `/secure/${COUNTRY}`.
-- Read the country flag from a private R2 bucket.
+- `wrangler.jsonc`: tells Wrangler what to deploy, where to route it, and which
+  R2 bucket binding to provide as `env.FLAGS`.
+- `src/index.js`: handles `/secure` and `/secure/${COUNTRY}`.
+- `flags/`: local SVG assets uploaded to the private R2 bucket.
 
 ## Wrangler
 
@@ -19,12 +21,11 @@ NODE_USE_SYSTEM_CA=1 NODE_OPTIONS="--use-system-ca" \
   wrangler deploy --config worker/wrangler.jsonc
 ```
 
-The Worker route is `tunnel.greginthecloud.com/secure*`. Access is configured
-to authenticate this path before the Worker runs.
+The Worker route is `tunnel.greginthecloud.com/secure*`. Cloudflare Access is
+configured separately to authenticate this path before the Worker runs.
 
-The initial Worker deployment is complete. The country flag response and R2
-binding are now included in the Worker configuration. The initial flag set is
-`PT`, `US`, and `GB`.
+The Worker is deployed with the `FLAGS` binding connected to the private
+`workerresponse-flags` R2 bucket. The initial flag set is `PT`, `US`, and `GB`.
 
 ## Wrangler Corporate CA Note
 

@@ -1,18 +1,29 @@
 {
+  // Gives editors the Wrangler schema for validation and autocomplete.
   "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  // Names the deployed Worker script.
   "name": "workerresponse-secure",
+  // Identifies the JavaScript module that exports the Worker handler.
   "main": "./src/index.js",
+  // Selects the Workers runtime compatibility behavior used by this code.
   "compatibility_date": "2026-09-23",
+  // Keeps this Worker on the custom hostname instead of creating a workers.dev URL.
   "workers_dev": false,
+  // Gives the Worker a private binding to the R2 flag bucket.
   "r2_buckets": [
     {
+      // This is the variable name available as env.FLAGS in the Worker.
       "binding": "FLAGS",
+      // This is the existing private R2 bucket connected to the binding.
       "bucket_name": "workerresponse-flags"
     }
   ],
+  // Sends the secure hostname path to this Worker.
   "routes": [
     {
+      // The wildcard includes /secure and /secure/<country>.
       "pattern": "tunnel.greginthecloud.com/secure*",
+      // Tells Wrangler which Cloudflare zone owns the route.
       "zone_name": "greginthecloud.com"
     }
   ]
