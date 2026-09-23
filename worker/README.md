@@ -6,8 +6,7 @@ The Worker will eventually:
 
 - Return authenticated identity information from `/secure`.
 - Link the country value to `/secure/${COUNTRY}`.
-- Read the country flag from a private R2 bucket in the next implementation
-  slice.
+- Read the country flag from a private R2 bucket.
 
 ## Wrangler
 
@@ -24,7 +23,8 @@ The Worker route is `tunnel.greginthecloud.com/secure*`. Access is configured
 to authenticate this path before the Worker runs.
 
 The initial Worker deployment is complete. The country flag response and R2
-binding are the next implementation slice.
+binding are now included in the Worker configuration. The initial flag set is
+`PT`, `US`, and `GB`.
 
 ## Wrangler Corporate CA Note
 

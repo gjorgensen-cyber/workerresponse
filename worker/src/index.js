@@ -12,6 +12,24 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    const countryMatch = url.pathname.match(/^\/secure\/([A-Za-z]{2})\/?$/);
+
+    if (countryMatch) {
+      const country = countryMatch[1].toUpperCase();
+      const object = await env.FLAGS.get(`flags/${country}.svg`);
+
+      if (!object) {
+        return new Response('Flag not found', { status: 404 });
+      }
+
+      return new Response(object.body, {
+        headers: {
+          'cache-control': 'private, max-age=300',
+          'content-type': object.httpMetadata?.contentType ?? 'image/svg+xml',
+        },
+      });
+    }
+
     if (url.pathname !== '/secure' && url.pathname !== '/secure/') {
       return new Response('Not found', { status: 404 });
     }
